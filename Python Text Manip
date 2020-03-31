@@ -1,0 +1,278 @@
+Text = "Harry lay in his dark cupboard much later, wishing he had a watch. He didn't know what time it was and he couldn't be sure the Dursleys were asleep yet. Until they were, he couldn't risk sneaking to the kitchen for some food. He'd lived with the Dursleys almost ten years, ten miserable years, as long as he could remember, ever since he'd been a baby and his parents had died in that car crash. He couldn't remember being in the car when his parents had died. Sometimes, when he strained his memory during long hours in his cupboard, he came up with a strange vision: a blinding flash of green light and a burning pain on his forehead.  This, he supposed, was the crash, though he couldn't imagine where all the green light came from. He couldn't remember his parents at all. His aunt and uncle never spoke about them, and of course he was forbidden to ask questions. There were no photographs of them in the house. "
+print(Text)
+#Testing Text 
+Harry lay in his dark cupboard much later, wishing he had a watch. He didn't know what time it was and he couldn't be sure the Dursleys were asleep yet. Until they were, he couldn't risk sneaking to the kitchen for some food. He'd lived with the Dursleys almost ten years, ten miserable years, as long as he could remember, ever since he'd been a baby and his parents had died in that car crash. He couldn't remember being in the car when his parents had died. Sometimes, when he strained his memory during long hours in his cupboard, he came up with a strange vision: a blinding flash of green light and a burning pain on his forehead.  This, he supposed, was the crash, though he couldn't imagine where all the green light came from. He couldn't remember his parents at all. His aunt and uncle never spoke about them, and of course he was forbidden to ask questions. There were no photographs of them in the house. 
+def paragraph(x):
+    output = []
+    post = x.split()
+    extra_char = ['%','^','&','*','(',')','-','_','+','=',' ',',',';','/','?','!','@','#','$',"''",':','.','<','>']
+#defined text and paragraph for character removal 
+    for r in post:
+        error = ''
+        for i in extra_char:
+            if (i in r):
+                r = r.replace(i,'').lower()
+        output.append(r)
+    return output
+# cont. 1.1
+dict = {}
+word_count = paragraph(Text)
+#establish dictonary 
+for x in word_count:
+    if x[0] in ['a','e','i','o','u']:
+        if dict.get(x) == None:
+            dict[x] = 1
+        else:
+            r = int(dict.get(x)) +1
+            dict.pop(x,r)
+            dict[x] = r
+print('List of Vowel Words w/ Frequency:')
+print('')
+print(sorted(dict.items(), key = lambda kv:(kv[1], kv[0]), reverse=True)) #need lambda to key sort w/ reverse true
+List of Vowel Words w/ Frequency:
+
+[('in', 5), ('and', 5), ('a', 5), ('of', 3), ('as', 2), ('all', 2), ('up', 1), ('uncle', 1), ('on', 1), ('it', 1), ('imagine', 1), ('ever', 1), ('aunt', 1), ('at', 1), ('asleep', 1), ('ask', 1), ('almost', 1), ('about', 1)]
+# Question 1.2
+output = []
+apostro = "'"
+
+for term in word_count:
+    if apostro in term:
+        if not term in output: output.append(term)
+            
+print('Apostro Words:')
+print('')
+for v in output:
+    print(v)
+Apostro Words:
+
+didn't
+couldn't
+He'd
+he'd
+#Question 1.3
+english_stop_words = ['a','about','above','after','again','against','all','am','an','and','any','are',"aren't",'as','at',
+'be','because','been','before','being','below','between','both','but','by',"can't",'cannot','could',"couldn't",'did',
+"didn't",'do','does',"doesn't",'doing',"don't",'down','during','each','few','for','from','further','had',"hadn't",'has',
+"hasn't",'have',"haven't",'having','he',"he'd","he'll","he's",'her','here',"here's",'hers','herself','him','himself','his',
+'how',"how's",'i',"i'd","i'll","i'm","i've",'if','in','into','is',"isn't",'it',"it's",'its','itself',"let's",'me','more',
+'most',"mustn't",'my','myself','no','nor','not','of','off','on','once','only','or','other','ought','our','ours','ourselves',
+'out','over','own','same',"shan't",'she',"she'd","she'll", "she's",'should',"shouldn't",'so','some','such','than','that',
+"that's",'the','their','theirs','them','themselves','then','there',"there's",'these','they',"they'd","they'll","they're",
+"they've",'this','those','through','to','too','under','until','up','very','was',"wasn't",'we',"we'd","we'll","we're",
+"we've",'were',"weren't",'what',"what's",'when',"when's",'where',"where's",'which','while','who',"who's",'whom','why',
+"why's",'with',"won't",'would',"wouldn't",'you',"you'd","you'll","you're","you've",'your','yours','yourself','yourselves',
+"didn't","He'd","he'd"] # <-added idetified apostrophe words in this list at the end
+
+#test stop words
+
+print(english_stop_words)
+['a', 'about', 'above', 'after', 'again', 'against', 'all', 'am', 'an', 'and', 'any', 'are', "aren't", 'as', 'at', 'be', 'because', 'been', 'before', 'being', 'below', 'between', 'both', 'but', 'by', "can't", 'cannot', 'could', "couldn't", 'did', "didn't", 'do', 'does', "doesn't", 'doing', "don't", 'down', 'during', 'each', 'few', 'for', 'from', 'further', 'had', "hadn't", 'has', "hasn't", 'have', "haven't", 'having', 'he', "he'd", "he'll", "he's", 'her', 'here', "here's", 'hers', 'herself', 'him', 'himself', 'his', 'how', "how's", 'i', "i'd", "i'll", "i'm", "i've", 'if', 'in', 'into', 'is', "isn't", 'it', "it's", 'its', 'itself', "let's", 'me', 'more', 'most', "mustn't", 'my', 'myself', 'no', 'nor', 'not', 'of', 'off', 'on', 'once', 'only', 'or', 'other', 'ought', 'our', 'ours', 'ourselves', 'out', 'over', 'own', 'same', "shan't", 'she', "she'd", "she'll", "she's", 'should', "shouldn't", 'so', 'some', 'such', 'than', 'that', "that's", 'the', 'their', 'theirs', 'them', 'themselves', 'then', 'there', "there's", 'these', 'they', "they'd", "they'll", "they're", "they've", 'this', 'those', 'through', 'to', 'too', 'under', 'until', 'up', 'very', 'was', "wasn't", 'we', "we'd", "we'll", "we're", "we've", 'were', "weren't", 'what', "what's", 'when', "when's", 'where', "where's", 'which', 'while', 'who', "who's", 'whom', 'why', "why's", 'with', "won't", 'would', "wouldn't", 'you', "you'd", "you'll", "you're", "you've", 'your', 'yours', 'yourself', 'yourselves', "didn't", "He'd", "he'd"]
+outcome = ''
+test_list_1 = []
+conjun_list = []
+#set for append with overlapping lists
+for term_1 in word_count: #word count defined in 1.2
+    if term in term_1:
+        continue
+    else: test_list_1.append(term_1)
+
+for w in test_list_1:
+    if not w in english_stop_words:
+        conjun_list.append(w)
+
+print('Paragraph w/o stopwords:')
+print('')
+for t in conjun_list:
+    outcome += t + ' '
+print(outcome)
+Paragraph w/o stopwords:
+
+Harry lay dark cupboard much later wishing watch He know time sure Dursleys asleep yet Until risk sneaking kitchen food lived Dursleys almost ten years ten miserable years long remember ever since baby parents died car crash He remember car parents died sometimes strained memory long hours cupboard came strange vision blinding flash green light burning pain forehead supposed crash though imagine green light came He remember parents His aunt uncle never spoke course forbidden ask questions There photographs 
+#Question 2.1
+#Web Scraping Not Necessary per TA. Files Uploaded Manually.
+#Question 2.2
+import statistics
+import csv
+#define base file
+def Weather_Info(base_pull):
+    overall_info=[]
+    with open(base_pull,'r') as intial:
+        header = csv.reader(intial) #need read file
+        next(header) 
+        #so header does not get included in file stats
+        for row in header: 
+            row_begin = (row[0],round(float(row[1])),round(float(row[2])),float(row[3])) #per decimal instructions for cleaner data
+            overall_info.append(row_begin)
+    return overall_info
+
+#bring in weather data based on Weather_Info defination after test
+info_2011 = Weather_Info("2011-Jan-June.txt")
+info_2018 = Weather_Info("2018-Jan-June.txt")
+#Separate stats for each year
+stats_2011 = (statistics.mean([x[1] for x in info_2011]), statistics.mean([x[2] for x in info_2011]), statistics.mean([x[3] for x in info_2011]),
+                  statistics.median([x[1] for x in info_2011]), statistics.median([x[2] for x in info_2011]), statistics.median([x[3] for x in info_2011]),
+                  statistics.pstdev([x[1] for x in info_2011]), statistics.pstdev([x[2] for x in info_2011]), statistics.pstdev([x[3] for x in info_2011]))
+
+stats_2018 = (statistics.mean([y[1] for y in info_2018]), statistics.mean([y[2] for y in info_2018]), statistics.mean([y[3] for y in info_2018]),
+                  statistics.median([y[1] for y in info_2018]), statistics.median([y[2] for y in info_2018]), statistics.median([y[3] for y in info_2018]),
+                  statistics.pstdev([y[1] for y in info_2018]), statistics.pstdev([y[2] for y in info_2018]), statistics.pstdev([y[3] for y in info_2018]))
+
+#using str and print to manipulate data
+print("High Temp")
+print("______________")
+print("File Name\t\tMean\tMedian\tStandard Dev")
+print("2011-Jan-June.txt\t"+str(round(stats_2011[0]))+"\t"+str(round(stats_2011[3],0))+"\t"+str(round(stats_2011[6],4)))
+print("2018-Jan-June.txt\t"+str(round(stats_2018[0]))+"\t"+str(round(stats_2018[3],0))+"\t"+str(round(stats_2018[6],4))+'\n')
+
+print("Low Temp")
+print("______________")
+print("File Name\t\tMean\tMedian\tStandard Dev")
+print("2011-Jan-June.txt\t"+str(round(stats_2011[1]))+"\t"+str(round(stats_2011[4],0))+"\t"+str(round(stats_2011[7],4)))
+print("2018-Jan-June.txt\t"+str(round(stats_2018[1]))+"\t"+str(round(stats_2018[4],0))+"\t"+str(round(stats_2018[7],4))+'\n')
+
+print("Precipitation")
+print("______________")
+print("File Name\t\tMean\tMedian\tStandard Dev")
+print("2011-Jan-June.txt\t"+str(round(stats_2011[2],4))+"\t"+str(round(stats_2011[5],4))+"\t"+str(round(stats_2011[8],4)))
+print("2018-Jan-June.txt\t"+str(round(stats_2018[2],4))+"\t"+str(round(stats_2018[5],4))+"\t"+str(round(stats_2018[8],4))+'\n')
+High Temp
+______________
+File Name		Mean	Median	Standard Dev
+2011-Jan-June.txt	74	77	19.3406
+2018-Jan-June.txt	73	73	17.2453
+
+Low Temp
+______________
+File Name		Mean	Median	Standard Dev
+2011-Jan-June.txt	50	49	18.4594
+2018-Jan-June.txt	49	47	17.5916
+
+Precipitation
+______________
+File Name		Mean	Median	Standard Dev
+2011-Jan-June.txt	0.1059	0.0	0.4296
+2018-Jan-June.txt	0.0803	0.0	0.3023
+
+#Question 3.1 
+
+class Student(object):
+    def __init__(person, First_Name1, Middle_Name1, Last_Name1):
+            person.First_Name = First_Name1
+            person.Middle_Name = Middle_Name1
+            person.Last_Name = Last_Name1
+            person.EUID = "" #object defaults blank - not shown
+            person.GPA = () #object defaults as zero - not shown - impact 3.5?
+            person.Classes1 = [] #reference in 3.4 - attempt
+            print("Student Record Successful")
+        
+    @classmethod
+    def input(cls):
+        return cls(
+            input('First Name: '),
+            input('Last Name: '), 
+            input('Middle Name: '), 
+        )      #only allowed inputs for question
+    
+    def line_items(person):
+        print("Student:", person.First_Name, " ", person.Middle_Name, " ", person.Last_Name, person.EUID, " ", person.GPA)
+
+#Question 3.2
+Records = {}
+print("Data for Three Students:")
+for i in range(3):  
+    Records[i] = Student.input()
+Data for Three Students:
+First Name: John
+Last Name: Doe
+Middle Name: Cho
+Student Record Successful
+First Name: James
+Last Name: Zach
+Middle Name: Lance
+Student Record Successful
+First Name: Taylor
+Last Name: Swift
+Middle Name: Young
+Student Record Successful
+#Question 3.3 
+import random
+
+def ID_num(student_line):
+  student_line.EUID = student_line.First_Name.lower()[0] + student_line.Middle_Name.lower()[0] + student_line.Last_Name.lower()[0] + str(random.randint(1000,9999))
+# + str(random.randint(1000,9999)) ---> For Visual
+  print(student_line.First_Name, student_line.Middle_Name, student_line.Last_Name, "\t", student_line.EUID)
+    
+print("Name \t\t EUID")  
+for i in range(3):  
+    ID_num(Records[i])
+Name 		 EUID
+John Doe Cho 	 jdc8202
+James Zach Lance 	 jzl5072
+Taylor Swift Young 	 tsy4965
+#Question 3.4
+def register(student_line):
+    q = int(input(f"course register count: {student_line.EUID} ---->"))   
+    if q < 2:
+        print("Two Courses Minimum")
+        q = int(input(""))
+    for _ in range(q):   
+        Class_Num = input("Class #:").split(",")
+        student_line.Classes1.append([Class_Num]) 
+    for _ in range(q):
+        semes = input("Semester:").split(",")
+        student_line.Classes1.append(semes)
+    for _ in range(q):
+        grade_ = input("Grade:").split(",")
+        student_line.Classes1.append(grade_)
+
+for i in range(3):
+    register(Records[i])
+course register count: jdc8202 ---->2
+Class #:5958
+Class #:4887
+Semester:FALL
+Semester:SPRN
+Grade:85
+Grade:97
+course register count: jzl5072 ---->2
+Class #:5959
+Class #:2625
+Semester:SUMM
+Semester:FALL
+Grade:79
+Grade:99
+course register count: tsy4965 ---->2
+Class #:8989
+Class #:5656
+Semester:FALL
+Semester:SUMM
+Grade:89
+Grade:98
+#Question 3.5
+#After several attempts, I couldn't get a viable strategy to pull from 3.2. I think it has to do with my setup initially.
+#Bonus Question 4.1
+
+def introduction():
+   print("*" * 24)
+   print("** A Simple Math Quiz **")
+   print("*" * 24)
+#test in python application 
+print(introduction)
+<function introduction at 0x00000207CBD388C8>
+#Bonus Question 4.2
+def quiz_questions():
+   print("1. Addition")
+   print("2. Subtraction")
+   print("3. Multiplication")
+   print("4. Integer Division")
+   print("5. Exit")
+#test in python application
+print(quiz_questions)
+<function quiz_questions at 0x00000207CBD38730>
+def section_separator():
+# print “----------------------” per instructions 
+    print("-" * 24)
+#test in python application
+print(section_separator)
+<function section_separator at 0x00000207CBD38950>
