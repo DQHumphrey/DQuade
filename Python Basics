@@ -1,0 +1,562 @@
+"""
+(1)Go Through the Reading Material for Lesson 2 in the Syllabus (should be “Downey: Chapter 2-7”), and find all the 
+source codes in the main content of these chapters (not those in exercise);
+
+(2)For Each piece of code you found, use one code chunk in the Jupyter Notebook to repeat it (type it into the chunk
+and hit run), and then use another code chunk to make some changes (Strings, Operators, and Operands, etc.)
+and run it. 
+
+If you encounter an error, don't panic, try to read the corresponding part of the textbook and fix it, you can also
+search solutions online. If you cannot fix it in 5 minutes, just skip and leave it there, but mark it as a question
+at the end of your Word Document;
+"""
+Out[45]:
+"\n(1)Go Through the Reading Material for Lesson 2 in the Syllabus (should be “Downey: Chapter 2-7”), and find all the \nsource codes in the main content of these chapters (not those in exercise);\n\n(2)For Each piece of code you found, use one code chunk in the Jupyter Notebook to repeat it (type it into the chunk\nand hit run), and then use another code chunk to make some changes (Strings, Operators, and Operands, etc.)\nand run it. \n\nIf you encounter an error, don't panic, try to read the corresponding part of the textbook and fix it, you can also\nsearch solutions online. If you cannot fix it in 5 minutes, just skip and leave it there, but mark it as a question\nat the end of your Word Document;\n"
+In [46]:
+"""Loc 387: Assigment Statements"""
+# Text code
+message = 'And now for something completely different'
+n = 17
+pi = 3.141592653589793
+
+# My code
+print(message)
+print(n)
+print(pi)
+And now for something completely different
+17
+3.141592653589793
+In [47]:
+"""Location 402"""
+# 76trombones = 'big parade'
+# more@ = 1000000
+# class = 'Advanced Theoretical Zymurgy'
+
+# All have invalid syntax
+Out[47]:
+'Location 402'
+In [48]:
+# Corrected syntax
+seventysixtrombones = 'big parade'
+moreat = 1000000
+_class = 'Advanced Theoretical Zymurgy'
+In [49]:
+"""Loc 417: Expressions and Statements"""
+n = 17
+print(n)
+
+miles = 26.2
+print(miles * 1.61)
+
+print(1)
+x = 2
+print (x)
+17
+42.182
+1
+2
+In [50]:
+"""Loc 456: String Operations"""
+first = 'throat'
+second = 'warbler'
+print(first + second)
+throatwarbler
+In [51]:
+"""Loc 471: Comments"""
+# Compute the percentage of the hour that has elapsed
+minute = 45
+percentage = (minute * 100)/60
+print (percentage)
+
+v = 5 # assign 5 to v
+v = 5 # velocity in meters/second
+75.0
+In [52]:
+"""Loc 552"""
+print(type(42))
+print(int('32'))
+print(int(3.999))
+print(int(-2.3))
+print(float(32))
+print(float('3.14159'))
+<class 'int'>
+32
+3
+-2
+32.0
+3.14159
+In [53]:
+"""Loc 566: Math Functions"""
+import math
+
+signal_power = 1
+noise_power = 2
+ratio = signal_power / noise_power
+decibels = 10 * math.log10(ratio)
+print(decibels)
+-3.010299956639812
+In [54]:
+"""Loc 582"""
+degrees = 45
+radians = degrees / 180.0 * math.pi
+print(math.sin(radians))
+
+x = math.sin(degrees / 360.0 * 2 * math.pi)
+print(x)
+
+x = math.exp(math.log(x+1))
+print(x)
+0.7071067811865475
+0.7071067811865475
+1.7071067811865475
+In [55]:
+"""Loc 599: Adding New Functions"""
+def print_lyrics():
+    print("I'm a lumberjack, and I am okay.")
+    print("I sleep all night and I work all day.")
+    
+def repeat_lyrics():
+    print_lyrics()
+    print_lyrics()
+    
+repeat_lyrics()
+I'm a lumberjack, and I am okay.
+I sleep all night and I work all day.
+I'm a lumberjack, and I am okay.
+I sleep all night and I work all day.
+In [56]:
+"""Loc 658"""
+def print_twice(bruce):
+    print(bruce)
+    print(bruce)
+    
+print_twice('Spam')
+print_twice(math.pi)
+print_twice('Spam'*4)
+print_twice(math.cos(math.pi))
+michael = 'Eric, the half a bee'
+print_twice(michael)
+Spam
+Spam
+3.141592653589793
+3.141592653589793
+SpamSpamSpamSpam
+SpamSpamSpamSpam
+-1.0
+-1.0
+Eric, the half a bee
+Eric, the half a bee
+In [58]:
+"""Loc 671: Variables and Parameters Are Local"""
+def cat_twice(part1, part2):
+    cat = part1 + part2
+    print_twice(cat)
+    
+line1 = 'Bing tiddle'
+line2 = 'tiddle bang'
+cat_twice(line1, line2)
+Bing tiddletiddle bang
+Bing tiddletiddle bang
+In [60]:
+"""Loc 703: Fruitful Functions and Void Functions"""
+def print_twice(bruce):
+    print(bruce)
+    print(bruce)
+    
+result = print_twice('Bing')
+print(result)
+print(type(result))
+Bing
+Bing
+None
+<class 'NoneType'>
+In [1]:
+"""Loc 819: The Turtle Module"""
+import turtle
+bob = turtle.Turtle()
+print(bob)
+turtle.mainloop()
+<turtle.Turtle object at 0x1088a5b70>
+In [5]:
+"""Loc 1026: Floor Division and Modulus"""
+minutes = 105
+print(minutes/60)
+
+hours = minutes // 60
+print(hours)
+
+remainder = minutes - hours*60
+print(remainder)
+
+remainder = minutes % 60
+print(remainder)
+1.75
+1
+45
+45
+In [9]:
+"""Loc 1040: Boolean Expressions"""
+print(5 == 5)
+print(5 == 6)
+print(type(True))
+print(type(False))
+True
+False
+<class 'bool'>
+<class 'bool'>
+In [12]:
+"""Loc 1174: Keyboard input"""
+text = input()
+print(text)
+
+name = input('What...is your name? \n')
+print(name)
+
+prompt = 'What...is the airspeed velocity of an unladen swallow?\n'
+speed = input(prompt)
+print(int(speed))
+q
+q
+What...is your name? 
+2
+2
+What...is the airspeed velocity of an unladen swallow?
+2
+2
+In [15]:
+"""Loc 1202"""
+# Fixed version
+import math
+signal_power = 9
+noise_power = 10
+ratio = signal_power / noise_power
+decibels = 10 * math.log10(ratio)
+print(decibels)
+-0.4575749056067512
+In [18]:
+"""Loc 1321"""
+def area(radius):
+    a = math.pi * radius**2
+    print('Area: ' + str(a))
+    return a
+
+def distance(x1, y1, x2, y2):
+    dx = x2 - x1
+    dy = y2 - y1
+    dsquared = dx**2 + dy**2
+    result = math.sqrt(dsquared)
+    print('Sum of Squares: ' + str(result))
+    return result
+
+def circle_area(xc, yc, xp, yp):
+    radius = distance(xc, yc, xp, yp)
+    result = area(radius)
+    print('Circle Area: ' + str(result))
+    return result
+
+print(circle_area(1,2,3,4))
+Sum of Squares: 2.8284271247461903
+Area: 25.132741228718352
+Circle Area: 25.132741228718352
+25.132741228718352
+In [22]:
+"""Loc 1362: Boolean Functions"""
+def is_divisible(x,y):
+    if x%y == 0:
+        return True
+    else:
+        return False
+    
+if is_divisible(10,2):
+    print('x is divisible by y')
+else:
+    print('x is not divisible by y')
+x is divisible by y
+In [24]:
+"""Loc 1391: More Recursion"""
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        recurse = factorial(n-1)
+        result = n * recurse
+        return result
+    
+print(factorial(4))
+24
+In [25]:
+"""Loc 1433: One More Example"""
+def fibonacci (n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+print(fibonacci(8))
+21
+In [5]:
+"""Loc 1457"""
+def factorial(n):
+    if not isinstance(n, int):
+        print('Factorial is only defined for integers.')
+        return None
+    elif n < 0:
+        print ('Factorial is not defined for negative integers')
+        return None
+    elif n == 0:
+        return 1
+    else:
+        return n*factorial (n-1)
+    
+print(factorial(16))
+20922789888000
+In [8]:
+"""Loc 1473"""
+def factorial(n):
+    space = ' ' * (4 * n)
+    print(space, 'factorial', n)
+    if n==0:
+        print(space, 'returning 1')
+        return 1
+    else:
+        recurse = factorial(n-1)
+        result = n * recurse
+        print(space, 'returning', result)
+        return result
+    
+print(factorial(8))
+                                 factorial 8
+                             factorial 7
+                         factorial 6
+                     factorial 5
+                 factorial 4
+             factorial 3
+         factorial 2
+     factorial 1
+ factorial 0
+ returning 1
+     returning 1
+         returning 2
+             returning 6
+                 returning 24
+                     returning 120
+                         returning 720
+                             returning 5040
+                                 returning 40320
+40320
+In [9]:
+"""Loc 1535 Chapter 7 Iteration: Reassignment"""
+x = 5
+print(x)
+
+x = 7 
+print(x)
+5
+7
+In [12]:
+"""Loc 1551"""
+a = 5
+b = a
+a = 3
+print(b)
+print(a)
+
+x = 0
+x = x + 1
+print(x)
+5
+3
+1
+In [13]:
+"""Loc 1565"""
+def countdown(n):
+    while n > 0:
+        print(n)
+        n = n - 1
+    print('Blastoff!')
+    
+countdown(10)
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+Blastoff!
+In [14]:
+"""Loc 1582"""
+def sequence(n):
+    while n != 1:
+        print(n)
+        if n % 2 == 0: # n is even
+            n = n/2
+        else: # n is even
+            n = n*3 + 1
+            
+sequence(10)
+10
+5.0
+16.0
+8.0
+4.0
+2.0
+In [15]:
+"""Loc 1599"""
+while True:
+    line = input ('> ')
+    if line == 'done':
+        break
+    print(line)
+> mo
+mo
+> test
+test
+> done
+In [20]:
+"""Loc 1613"""
+a = 4
+x = 3
+y = (x + a/x) / 2
+print(y)
+
+x = y
+y = (x + a/x) / 2
+print(y)
+
+x = y
+y = (x + a/x) / 2
+print(y)
+
+x = y
+y = (x + a/x) / 2
+print(y)
+
+x = y
+y = (x + a/x) / 2
+print(y)
+
+while True:
+    print(x)
+    y = (x + a/x) / 2
+    if y == x:
+        break
+    x = y
+    print(y)
+2.1666666666666665
+2.0064102564102564
+2.0000102400262145
+2.0000000000262146
+2.0
+2.0000000000262146
+2.0
+2.0
+Question 3
+Question 3. (15 points). Write a Python program in the “
+
+In [57]:
+# Generates random numbers
+
+def random_generator(n):
+    counter = 0
+    result_list = []
+    while counter < n:
+        result_list.append(random.randint(1,100))
+        counter = counter + 1
+    return result_list
+    
+
+import random
+n = 12
+# Prints random numbers
+answer1 = random_generator(n)
+print(answer1)
+
+# Sort list in ascending order and print
+answer1.sort()
+print(answer1)
+
+# Sort list in descending order and print
+answer1.sort(reverse = True)
+print(answer1)
+
+# Calculate average for list
+sum = 0
+for num in answer1:
+    sum = sum + num
+    average  = sum / len(answer1)
+print(average)
+[39, 87, 48, 91, 67, 96, 88, 61, 17, 56, 92, 26]
+[17, 26, 39, 48, 56, 61, 67, 87, 88, 91, 92, 96]
+[96, 92, 91, 88, 87, 67, 61, 56, 48, 39, 26, 17]
+64.0
+Question 4
+Question 4. (25 points). Write a program in the “
+
+In [44]:
+"""Question 4 answers"""
+
+def split_sentence(a):
+    result = a.split()
+    return result
+
+def compare_lists(a, b):
+    result = set(a).intersection(b)
+    return (result)
+        
+def remove_punctuation(a):
+    for x in a:
+        a = a.replace('.','')
+        a = a.replace(',','')
+        a = a.replace(':','')
+        a = a.replace(';','')
+    return(a)
+
+def count_vowels(vowel, sentence):
+    vowel_count = 0
+    for count in sentence:
+        if count == vowel:
+            vowel_count += 1
+    return vowel_count
+        
+    
+# Input and split first sentence
+sentence1 = input('Enter a sentence: ')
+sentence1_split = split_sentence(sentence1)
+
+# Input and split second sentence
+sentence2 = input('Enter a second sentence: ')
+sentence2_split = split_sentence(sentence2)
+
+# Test results
+print (sentence1_split)
+print (sentence2_split)
+
+print(compare_lists(sentence1_split, sentence2_split))
+
+# Remove punctuation
+print(remove_punctuation(sentence1))
+print(remove_punctuation(sentence2))
+
+# Vowel Count
+vowel = ['a','e','i','o','u']
+test_sentence = str(sentence1) + str(sentence2)
+for x in vowel:
+    print(x + ': ' + str(count_vowels(x,test_sentence)))
+Enter a sentence: test 1 sentence and 
+Enter a second sentence: another you;
+['test', '1', 'sentence', 'and']
+['another', 'you;']
+set()
+test 1 sentence and 
+another you
+a: 2
+e: 5
+i: 0
+o: 2
+u: 1
